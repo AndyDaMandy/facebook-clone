@@ -2,6 +2,12 @@
 
 <%= render @post %>
 
+<h2>Comments</h2>
+<%= render @post.comments %>
+
+<h2>Add a comment:</h2>
+<%= render 'comments/form' %>
+
 <div>
   <%= link_to "Edit this post", edit_post_path(@post) %> |
   <%= link_to "Back to posts", posts_path %>
