@@ -5,7 +5,7 @@
 <div id="posts">
   <% @posts.each do |post| %>
     <%= render post %>
-    <%= render 'likes/likes_count' %>
+    <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
     <p>
     <%= link_to "Show this post", post %>
     </p>

@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+    before_action :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
     def show
     end
     def new
