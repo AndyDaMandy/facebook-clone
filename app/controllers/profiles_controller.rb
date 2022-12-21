@@ -3,7 +3,8 @@ class ProfilesController < ApplicationController
     def show
     end
     def new
-        @profile = Profile.new
+      @user = current_user
+      @profile = @user.build_profile
     end
     def create
         @profile = current_user.build_profile(profile_params)
