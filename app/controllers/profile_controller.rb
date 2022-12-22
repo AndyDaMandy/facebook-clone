@@ -1,8 +1,14 @@
-class ProfilesController < ApplicationController
+class ProfileController < ApplicationController
     before_action :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
+
+    def index
+        @user = current_user
+        @profile = @user.profile
+    end
     def show
     end
     def new
+      @user = current_user
       @profile = current_user.build_profile
     end
     def create
@@ -26,5 +32,4 @@ class ProfilesController < ApplicationController
     def profile_params
         params.require(:profile).permit(:user_id, :first_name, :last_name, :age, :likes, :dislikes, :about)
     end
-
 end

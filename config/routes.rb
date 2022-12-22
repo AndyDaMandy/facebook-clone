@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :likes
   end
   resources :users do
-    resources :profiles
+    resources :profile
     resources :comments
     resources :likes
     resources :friendship
