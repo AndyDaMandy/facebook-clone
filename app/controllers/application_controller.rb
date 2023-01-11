@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    before_action :require_profile, :except=>[:new, :create]
+    #before_action :require_profile, :except=>[:new, :create]
 
     private
 

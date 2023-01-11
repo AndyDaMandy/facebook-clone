@@ -1,5 +1,5 @@
 class ProfileController < ApplicationController
-    before_action :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
+    #before_action :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
 
     def index
         @user = current_user
