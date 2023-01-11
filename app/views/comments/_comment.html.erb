@@ -1,9 +1,11 @@
 <p>
   <strong>Commenter:</strong>
-  <%= comment.commenter %>
+  <% @user = User.find(comment.user_id)%>
+  <%= @user.profile.first_name %>
+  <%= @user.profile.last_name %>
 </p>
 
 <p>
   <strong>Comment:</strong>
-  <%= comment.body %>
+  <%= comment.comment %>
 </p>
