@@ -2,8 +2,10 @@
 
 <%= render "form", post: @user %>
 
-<br>
-
 <div>
   <%= link_to "Show this user", @user %>
 </div>
+<br>
+
+<h2>Edit email/password: </h2>
+<%= link_to 'Edit email/password', edit_user_registration_path, :class => 'navbar-link' %> 
