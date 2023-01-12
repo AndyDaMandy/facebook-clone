@@ -20,16 +20,7 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
-  <%= f.label :first_name, style: "display: block" %>
-    <%= f.text_field :first_name %>
-    <%= f.label :last_name, style: "display: block" %>
-    <%= f.text_field :last_name %>
-    <%= f.label :age, style: "display: block" %>
-    <%= f.number_field :age %>
-    <%= f.label :about, style: "display: block" %>
-    <%= f.text_field :about %>
-
+  
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
