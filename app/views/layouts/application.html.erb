@@ -16,6 +16,12 @@
 <div class="container">
   <body>
   <%= render 'layouts/navbar' %>
+    <% if user_signed_in? %>
+      <%if current_user.first_name == nil && current_user.last_name == nil%>
+      You have yet to fill in your profile |
+      <%= link_to 'Edit profile', edit_user_path(current_user), class: 'sr-only, navbar-link' %> |
+      <% end %>
+    <% end %>
   <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
     <% end %>
