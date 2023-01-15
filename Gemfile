@@ -9,6 +9,12 @@ gem "rails", "~> 7.0.4"
 #devise
 gem "devise"
 
+#omniauth
+gem 'omniauth-facebook'
+
+#figaro
+gem "figaro"
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
