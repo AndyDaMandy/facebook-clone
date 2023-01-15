@@ -261,6 +261,7 @@ DEPENDENCIES
   figaro
   importmap-rails
   jbuilder
+  omniauth
   omniauth-facebook
   omniauth-rails_csrf_protection
   pg (~> 1.1)

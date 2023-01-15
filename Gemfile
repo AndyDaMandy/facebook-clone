@@ -10,6 +10,7 @@ gem "rails", "~> 7.0.4"
 gem "devise"
 
 #omniauth
+gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
 
