@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
     #before_action :require_profile, :except=>[:new, :create]
 
+    before_action :authenticate_user!
+
     private
 
     def require_profile

@@ -11,6 +11,7 @@ gem "devise"
 
 #omniauth
 gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection'
 
 #figaro
 gem "figaro"
