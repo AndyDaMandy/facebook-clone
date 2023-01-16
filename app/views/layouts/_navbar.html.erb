@@ -10,7 +10,9 @@
        <%= link_to "Home", root_path, class: "sr-only, nav-link" %>
       </li>
       <li class="nav-item">
-        <%= link_to "My Posts", posts_path, class: "sr-only, nav-link" %>
+        <%if user_signed_in?%>
+        <%= link_to "My Posts", posts_path(current_user.id), class: "sr-only, nav-link" %>
+        <% end %>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
