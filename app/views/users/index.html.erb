@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Users</h1>
+
+<%= render 'search_form' %>
+
+<div id="users">
+  <% @user.each do |user| %>
+    <%= render user.first_name %>
+    <%= render user.last_name %>
+    <p>
+    <%= link_to "User Page", user %>
+    </p>
+  <% end %>
+</div>
