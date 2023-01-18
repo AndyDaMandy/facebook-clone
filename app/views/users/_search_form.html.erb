@@ -1,9 +1,11 @@
-<%= form_tag(user_path, method: :get) do %>
+<%= form_with url: "/search", method: :get do |f| %>
     <div>
-        <%= label_tag :first_name, "First Name" %>
-        <%= label_tag :arrival_airport, "Last Name" %>
+        <%= f.label :first_name, "First Name" %>
+        <%= f.text_field, :first_name %>
+        <%= f.label :last_name, "Last Name" %>
+        <%= f.text_field, :last_name %>
     </div>
     <div>
-    <%= submit_tag "Search" %>
+    <%= f.submit "Search" %>
     </div>
 <% end %>
