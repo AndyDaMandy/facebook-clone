@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     resources :likes
   end
   resources :friendships
+  get 'friends/create/:id', to: 'friendships#create', as: 'add_friend'
   resources :authentications, only: [:destroy]
   resources :users, :only => [:show]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
