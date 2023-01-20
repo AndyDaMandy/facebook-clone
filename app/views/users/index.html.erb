@@ -2,14 +2,16 @@
 
 <h1>Users</h1>
 
-<%= render 'search_form' %>
-
 <div id="users">
-  <% @user.each do |user| %>
-    <%= render user.first_name %>
-    <%= render user.last_name %>
+  <% @users.each do |user| %>
+    <% if user.first_name != nil && user.last_name != nil %>
+    <%= user.first_name %>
+    <%= user.last_name %>
     <p>
     <%= link_to "User Page", user %>
     </p>
+    <% else %>
+      <p>This user has not filled in their profile, you cannot add them until they've filled in their profile. </p>
+    <% end %>
   <% end %>
 </div>

@@ -1,9 +1,9 @@
 <%= form_with url: "/search", method: :get do |f| %>
     <div>
         <%= f.label :first_name, "First Name" %>
-        <%= f.text_field, :first_name %>
+        <%= f.text_field :first_name %>
         <%= f.label :last_name, "Last Name" %>
-        <%= f.text_field, :last_name %>
+        <%= f.text_field :last_name %>
     </div>
     <div>
     <%= f.submit "Search" %>
