@@ -6,7 +6,7 @@
     <li>About: <%= @user.about %></li>
 </ul>
 <% if @user != current_user %>
-<%= link_to "Add Friend", user_friendship_path(:friend_id => @user.id), :method => :post %>
+<%= link_to "Add Friend", new_friendship_path(:friend_id => @user.id), :method => :post %>
 <% end %>
 
 
