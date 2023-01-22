@@ -11,7 +11,7 @@
       </li>
       <li class="nav-item">
         <%if user_signed_in?%>
-        <%= link_to "My Posts", posts_path(current_user.id), class: "sr-only, nav-link" %>
+        <%= link_to "My Posts", self_posts_path, class: "sr-only, nav-link" %>
         <% end %>
       </li>
       <li class="nav-item">
@@ -24,6 +24,7 @@
   <p class="navbar-text float-right">
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.email %></strong>.
+    <%= link_to 'View Profile', user_path(current_user), class: 'sr-only, navbar-link' %>
    <%= link_to 'Edit profile', edit_user_path(current_user), class: 'sr-only, navbar-link' %> |
   <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'sr-only, navbar-link'  %>
 <% else %>

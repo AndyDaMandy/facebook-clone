@@ -7,6 +7,10 @@ class PostsController < ApplicationController
     @posts = Post.all
     @posts = Post.filter_by_user_id(params[:user_id])
   end
+  def self_posts
+    @user = current_user
+    @posts = @user.posts
+  end
 
   # GET /posts/1 or /posts/1.json
   def show

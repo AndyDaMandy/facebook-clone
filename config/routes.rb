@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :comments
     resources :likes
   end
+  get '/self_posts', to: 'posts#self_posts'
   resources :users do
     resources :profile
     resources :comments
