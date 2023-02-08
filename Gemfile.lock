@@ -94,6 +94,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dockerfile-rails (1.0.7)
+      rails
     erubi (1.11.0)
     faraday (2.7.2)
       faraday-net_http (>= 2.0, < 3.1)
@@ -258,6 +260,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  dockerfile-rails (>= 1.0.0)
   figaro
   importmap-rails
   jbuilder
