@@ -34,6 +34,6 @@
 /config/application.yml
 
 # Ignore fly.toml config and Dockerfile
-/Dockerfile
-/fly.toml
+#/Dockerfile
+#/fly.toml
 
