@@ -63,6 +63,18 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "facebook_clone_production"
 
   config.action_mailer.perform_caching = false
+  #mailer
+  config.action_mailer.default_url_options = { :host => "empty-glitter-6311.fly.dev" }
+  #sendgrid
+  ActionMailer::Base.smtp_settings = {
+    :user_name => Rails.application.credentials.dig(:sendgrid, :username),
+    :password => Rails.application.credentials.dig(:sendgrid, :password),
+    :domain => 'empty-glitter-6311.fly.dev',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
