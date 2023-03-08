@@ -17,6 +17,9 @@ gem 'omniauth-rails_csrf_protection'
 #letter opener
 gem "letter_opener", group: :development
 
+#sendgrid
+gem 'sendgrid-ruby'
+
 #figaro
 gem "figaro"
 
