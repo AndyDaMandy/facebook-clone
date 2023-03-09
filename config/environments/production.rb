@@ -68,13 +68,18 @@ Rails.application.configure do
   #sendgrid
   ActionMailer::Base.smtp_settings = {
     :user_name => 'apikey',
-    :password => ENV[SENDGRID_API_KEY], 
+    :password => ENV["SENDGRID_API_KEY"], 
     :domain => 'empty-glitter-6311.fly.dev',
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,
     :enable_starttls_auto => true
   }
+  #Amazon SES
+  config.x.mail_from = %(Your site name <no-reply@yoursite-domain.com>)
+  config.action_mailer.default_url_options = { host: 'yoursite-domain.com' }
+  config.action_mailer.smtp_settings = { address: 'email-smtp.eu-west-1.amazonaws.com', user_name: 'your_smtp_username', password: 'your_smtp_password' }
+  config.action_mailer.raise_delivery_errors = true
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false

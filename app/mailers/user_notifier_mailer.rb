@@ -6,10 +6,10 @@ class UserNotifierMailer < Devise::Mailer
   require 'sendgrid-ruby'
   include SendGrid
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
-    response = sg.client.mail._('send').post(request_body: mail.to_json)
-    puts response.status_code
-    puts response.body
-    puts response.headers
+    #response = sg.client.mail._('send').post(request_body: mail.to_json)
+    #puts response.status_code
+    #puts response.body
+    #puts response.headers
   default template_path: 'devise/mailer' # to make sure that your mailer uses the devise views
   default :from => 'andy.dev.mailer@gmail.com'
 
