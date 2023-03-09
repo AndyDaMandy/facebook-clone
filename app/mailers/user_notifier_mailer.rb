@@ -2,15 +2,9 @@ class UserNotifierMailer < Devise::Mailer
 
   helper :application # gives access to all helpers defined within `application_helper`.
   include Devise::Controllers::UrlHelpers # Optional. eg. `confirmation_url`
+
   require 'sendgrid-ruby'
-    include SendGrid
-
-    from = Email.new(email: 'andy.dev.mailer@gmail.com')
-    to = Email.new(email: 'andy.dev.mailer@gmail.com')
-    subject = 'Sending with SendGrid is Fun'
-    content = Content.new(type: 'text/plain', value: 'and easy to do anywhere, even with Ruby')
-    mail = Mail.new(from, subject, to, content)
-
+  include SendGrid
     sg = SendGrid::API.new(api_key: ENV['SENDGRID_API_KEY'])
     response = sg.client.mail._('send').post(request_body: mail.to_json)
     puts response.status_code
