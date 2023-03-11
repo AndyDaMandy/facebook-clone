@@ -1,17 +1,11 @@
 <div id="<%= dom_id post %>">
   <p>
-    <strong>User:</strong>
-    <% @user = User.find(post.user_id)  %>
-    <%if @user.first_name == nil && @user.last_name == nil%>
-    User has yet to fill in their profile
-    <% else %>
-    <%= @user.first_name %>
-    <%= @user.last_name %>
-    <% end %>
+    <strong>
+    <%= post.user.first_name %>
+    <%= post.user.last_name %>
+    </strong>
   </p>
-
   <p>
-    <strong>Content:</strong>
     <%= post.content %>
   </p>
 

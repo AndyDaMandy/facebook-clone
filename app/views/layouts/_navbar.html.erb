@@ -18,17 +18,28 @@
         <%= link_to "Find Friends", users_path, class: "sr-only, nav-link" %>
       </li>
     </ul>
-  <div class="navbar-text float-right">
+    </div>
 <% if user_signed_in? %>
-  Logged in as <strong><%= current_user.email %></strong>.
-    <%= link_to 'View Profile', user_path(current_user), class: 'sr-only, navbar-link' %>
-   <%= link_to 'Edit profile', edit_user_path(current_user), class: 'sr-only, navbar-link' %> |
-  <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'sr-only, navbar-link'  %>
+  <div class="nav-item">
+    Logged in as <strong><%= current_user.email %></strong>
+  </div>
+    <li class="nav-item">
+      <%= link_to 'View Profile', user_path(current_user), class: 'sr-only, navbar-link' %>
+    </li>
+    <div class="nav-item">
+      <%= link_to 'Edit profile', edit_user_path(current_user), class: 'sr-only, navbar-link' %>
+    </div>
+    <div class="nav-item">
+      <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'sr-only, navbar-link'  %>
+    </div>
 <% else %>
-  <%= link_to "Sign up", new_user_registration_path, class: 'sr-only, navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, class: 'sr-only, navbar-link'  %>
+  <div class="nav-item">
+    <%= link_to "Sign up", new_user_registration_path, class: 'sr-only, navbar-link'  %>
+  </div>
+  <div class="nav-item">
+    <%= link_to "Login", new_user_session_path, class: 'sr-only, navbar-link'  %>
+  </div>
 <% end %>
 </div>
-  </div>
 </div>
 </nav>

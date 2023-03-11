@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.all
-    @posts = Post.filter_by_user_id(params[:user_id])
+    #@posts = Post.filter_by_user_id(params[:user_id])
   end
   def self_posts
     @user = current_user
