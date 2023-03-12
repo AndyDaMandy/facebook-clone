@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Andy Book</title>
+    <title>The Andy Book</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -21,14 +21,16 @@
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
-  <div>
+  </div>
     <div class="row">
       <div class="col-md-2">
       </div>
       <div class="col-md-8">
+        <div class="text-center">
         <%= yield %>
+        </div>
       </div>
-      </div class="col-md-2">
+      <div class="col-md-2">
       </div>
     </div>
   </body>

@@ -64,12 +64,12 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
   #mailer
-  config.action_mailer.default_url_options = { :host => "empty-glitter-6311.fly.dev" }
+  config.action_mailer.default_url_options = { :host => "the-andy-book-app.fly.dev" }
   #sendgrid
   ActionMailer::Base.smtp_settings = {
     :user_name => 'apikey',
     :password => ENV["SENDGRID_API_KEY"], 
-    :domain => 'empty-glitter-6311.fly.dev',
+    :domain => 'the-andy-book-app.fly.dev',
     :address => 'smtp.sendgrid.net',
     :port => 587,
     :authentication => :plain,

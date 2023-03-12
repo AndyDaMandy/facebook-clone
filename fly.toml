@@ -1,6 +1,6 @@
-# fly.toml file generated for empty-glitter-6311 on 2023-02-08T08:40:14-05:00
+# fly.toml file generated for the-andy-book-app on 2023-03-12T09:52:00-04:00
 
-app = "empty-glitter-6311"
+app = "the-andy-book-app"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
