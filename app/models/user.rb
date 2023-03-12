@@ -22,12 +22,21 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true, length: { minimum: 1, maximum: 40 }
   validates :last_name, presence: true, length: { minimum: 1, maximum: 40 }
-  validates :age, presence: true, numericality: { only_integer: true }
-
+  #validates :age, presence: true, numericality: { only_integer: true }
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth.provider, uid: auth.uid) do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0, 20]
+      user.first_name = auth.info.first_name
+      user.last_name = auth.info.last_name
+      #user.image = auth.info.image # assuming the user model has an image
       # If you are using confirmable and the provider(s) you use validate emails, 
       # uncomment the line below to skip the confirmation emails.
       # user.skip_confirmation!
@@ -37,15 +46,5 @@ class User < ApplicationRecord
   #scope :filter_by_first_name, -> (first_name) { where("first_name LIKE?", first_name)}
   #scope :filter_by_last_name, -> (last_name) {where("last_name LIKE?", last_name)}
   #scope :filter_by_username, -> (username) {where("username LIKE?", username)}
-
-  
-  
-  def self.new_with_session(params, session)
-    super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
-      end
-    end
-  end
 
 end

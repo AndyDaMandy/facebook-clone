@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
+  get 'pages/privacy'
   #resources :posts
   #devise_for :users
   #devise_for :users, controllers: { registrations: "registrations" }
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
   authenticated :user do
     root 'posts#index', as: 'authenticated_root'
   end
