@@ -31,6 +31,7 @@
     <%= f.text_field :last_name, autofocus: true, autocomplete: "last-name" %>
   </div>
   <div class="field">
+    Optional:
     <%= f.label :about %><br />
     <%= f.text_field :about, autofocus: true, autocomplete: "about" %>
   </div>
@@ -38,6 +39,12 @@
     <%= f.label :age %><br />
     <%= f.number_field :age, autofocus: true, autocomplete: "age" %>
   </div>
+  <div class="field">
+  Optional:
+  <%= f.label :avatar %>
+  <%= f.file_field :avatar %>
+  </div>
+
   
   <div class="actions">
     <%= f.submit "Sign up" %>

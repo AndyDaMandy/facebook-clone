@@ -12,6 +12,14 @@ class User < ApplicationRecord
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
+  has_one_attached :avatar
+
+  enum role: [:user, :moderator, :admin]
+  after_initialize :set_default_role, :if => :new_record?
+  def set_default_role
+    self.role ||= :user
+  end
+
   validates :first_name, presence: true, length: { minimum: 1, maximum: 40 }
   validates :last_name, presence: true, length: { minimum: 1, maximum: 40 }
   validates :age, presence: true, numericality: { only_integer: true }

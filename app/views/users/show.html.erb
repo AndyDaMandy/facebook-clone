@@ -4,6 +4,7 @@
     <li>Last Name: <%= @user.last_name %></li>
     <li>Age: <%= @user.age.to_s %></li>
     <li>About: <%= @user.about %></li>
+    
 </ul>
 <% if @user != current_user %>
 <%= button_to "Add Friend", friendships_path(:friend_id => @user.id), :method => :post %>

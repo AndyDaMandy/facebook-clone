@@ -44,6 +44,16 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+#kaminari for pagination
+gem 'kaminari'
+#bootstrap5 for kaminari
+gem 'bootstrap5-kaminari-views'
+
+#image processing for active storage
+gem "image_processing", ">= 1.2"
+
+gem 'aws-sdk-s3'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
