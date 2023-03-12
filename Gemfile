@@ -53,6 +53,8 @@ gem 'bootstrap5-kaminari-views'
 gem "image_processing", ">= 1.2"
 
 gem 'aws-sdk-s3'
+#for resizing images
+gem "mini_magick"
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

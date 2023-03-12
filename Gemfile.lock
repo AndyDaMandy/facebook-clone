@@ -321,6 +321,7 @@ DEPENDENCIES
   jsbundling-rails (~> 1.1)
   kaminari
   letter_opener
+  mini_magick
   omniauth
   omniauth-facebook
   omniauth-rails_csrf_protection
