@@ -7,15 +7,15 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item active">
-       <%= link_to "Home", root_path, class: "sr-only, nav-link" %>
+       <%= link_to "Home", root_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%if user_signed_in?%>
-        <%= link_to "My Posts", self_posts_path, class: "sr-only, nav-link" %>
+        <%= link_to "My Posts", self_posts_path, class: "nav-link" %>
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to "Find Friends", users_path, class: "sr-only, nav-link" %>
+        <%= link_to "Find Friends", users_path, class: "nav-link" %>
       </li>
     </ul>
     <ul class="navbar-nav mr-auto">
@@ -29,20 +29,20 @@
     Logged in as <strong><%= current_user.email %></strong>
   </li>
     <li class="nav-item">
-      <%= link_to 'View Profile', user_path(current_user), class: 'sr-only, nav-link' %>
+      <%= link_to 'View Profile', user_path(current_user), class: 'nav-link' %>
     </li>
     <li class="nav-item">
-      <%= link_to 'Edit profile', edit_user_path(current_user), class: 'sr-only, nav-link' %>
+      <%= link_to 'Edit profile', edit_user_path(current_user), class: 'nav-link' %>
     </li>
     <li class="nav-item">
-      <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'sr-only, nav-link'  %>
+      <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn-link  btn nav-link'  %>
     </li>
 <% else %>
   <li class="nav-item">
-    <%= link_to "Sign up", new_user_registration_path, class: 'sr-only, nav-link'  %>
+    <%= link_to "Sign up", new_user_registration_path, class: 'nav-link'  %>
   </li>
   <li class="nav-item">
-    <%= link_to "Login", new_user_session_path, class: 'sr-only, nav-link'  %>
+    <%= link_to "Login", new_user_session_path, class: 'nav-link'  %>
   </li>
 <% end %>
 </ul>

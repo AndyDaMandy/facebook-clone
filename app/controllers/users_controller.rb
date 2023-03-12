@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    avatar = @user.avatar.download
+    #avatar = @user.avatar.download
     #@user = User.filter_by_first_name(params[:first_name])
     #@user = User.filter_by_last_name(params[:last_name])
   end

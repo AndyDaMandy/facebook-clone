@@ -4,11 +4,13 @@
 
 <div id="posts">
   <% @posts.each do |post| %>
-    <%= render post %>
-    <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-    <p>
-    <%= link_to "Show this post", post %>
-    </p>
+    <div class="card-body">
+      <%= render post %>
+      <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+      <p>
+      <%= link_to "Show this post", post %>
+      </p>
+    </div>
   <% end %>
 </div>
 
