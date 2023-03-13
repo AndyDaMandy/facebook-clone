@@ -4,12 +4,12 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order(:created_at).page params[:page]
     #@posts = Post.filter_by_user_id(params[:user_id])
   end
   def self_posts
     @user = current_user
-    @posts = @user.posts
+    @posts = @user.posts.order(:created_at).page params[:page]
   end
 
   # GET /posts/1 or /posts/1.json
