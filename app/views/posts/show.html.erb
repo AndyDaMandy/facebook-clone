@@ -1,16 +1,20 @@
-<%= render @post %>
 
-<%= render 'likes/likes'%>
-
-<h2>Comments</h2>
-<%= render @post.comments %>
-
-<h2>Add a comment:</h2>
-<%= render 'comments/form' %>
-
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
+<div class="">
+  <%= link_to "Back to posts", posts_path, class: "btn btn-light"  %>
 </div>
+  <div class="card">
+    <div class="card-body">
+      <%= render @post %>
+
+      <%= render 'likes/likes'%>
+      <div>
+        <h5>Comments</h5>
+        <%= render @post.comments %>
+        <%= render 'comments/form' %>
+      </div>
+    <div class="btn-group">
+      <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-light" %>
+      <%= button_to "Delete this post", @post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+    </div>
+    </div>
+  </div>

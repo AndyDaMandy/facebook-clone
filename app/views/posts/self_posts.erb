@@ -1,15 +1,18 @@
 <h1>My Posts</h1>
-<%= link_to "New post", new_post_path %>
+<%= link_to "New post", new_post_path, class: "btn btn-primary" %>
 
 
 <div id="posts">
   <% @posts.each do |post| %>
-    <%= render post %>
-    <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-    <p>
-    <%= link_to "Show this post", post %>
-    </p>
+    <div class="card">
+      <div class="card-body">
+      <%= render post %>
+      <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+      <p>
+      <%= link_to "Show this post and comments", post, class: "btn btn-light" %>
+      </p>
+      </div>
+    </div>
   <% end %>
 </div>
-
 

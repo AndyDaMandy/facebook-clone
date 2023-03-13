@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>The Andy Book</title>
+    <title>The Andy Hon</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -23,19 +23,21 @@
     <% end %>
   </div>
     <div class="row">
-      <div class="col-md-2">
+      <div class="col">
       </div>
-      <div class="col-md-8">
-        <div class="text-center">
+      <div class="col">
         <%= yield %>
-        </div>
       </div>
-      <div class="col-md-2">
+      <div class="col">
       </div>
     </div>
   </body>
   <footer>
-    <%= link_to "Privacy Policy", pages_privacy_path %>
+    <nav class="navbar fixed-bottom bg-body-tertiary">
+    <div class="container-fluid">
+      <%= link_to "Privacy Policy", pages_privacy_path %>
+    </div>
+    </nav>
   </footer>
 </div>
 </html>

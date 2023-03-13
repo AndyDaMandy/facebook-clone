@@ -1,12 +1,17 @@
-<div id="<%= dom_id post %>" class="card-text">
-  <p>
+<div id="<%= dom_id post %>">
+  <div class="card-header">
     <strong>
     <%= post.user.first_name %>
     <%= post.user.last_name %>
     </strong>
-  </p>
-  <p>
+  </div>
+  <div class="card-text">
+  <p class="fs-2">
     <%= post.content %>
   </p>
-
+  <p>Posted on: <%= post.created_at.strftime("%A %B, %d %Y %I:%M") %></p>
+  <% if post.updated_at != post.created_at %>
+    <p>Lasted edited: <%= post.updated_at.strftime("%A %B, %d %Y %I:%M") %></p>
+  <% end %>
+  </div>
 </div>
