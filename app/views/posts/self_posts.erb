@@ -7,7 +7,7 @@
     <div class="card">
       <div class="card-body">
       <%= render post %>
-      <p><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+      <p>&#11088 <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
       <p>
       <%= link_to "Show this post and comments", post, class: "btn btn-light" %>
       </p>

@@ -1,5 +1,5 @@
 <div>
-  <p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+  <p>&#11088 <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 </div>
 <div>
   <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
