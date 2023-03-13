@@ -5,6 +5,12 @@
     <%= post.user.last_name %>
     </strong>
   </div>
+  <% if post.images.attached? %>
+  <% post.images do |image| %>
+  <%= image_tag image class: "img-flex" %>
+  <% end %>
+  
+  <% end %>
   <div class="card-text">
   <p class="fs-2">
     <%= post.content %>

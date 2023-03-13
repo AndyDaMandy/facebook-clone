@@ -23,6 +23,8 @@ gem 'sendgrid-ruby'
 #figaro
 gem "figaro"
 
+gem 'active_storage_validations'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
