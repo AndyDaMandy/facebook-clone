@@ -17,11 +17,15 @@
     <% form.hidden_field :user_id, value: current_user.id %>
   </div>
   <div>
-    <%= form.label :images, "Upload Images! Max 3", style: "display: block"%>
+    <%= form.label :images, "Upload Images - Max 3:", style: "display: block"%>
     <%= form.file_field :images,multiple: true, direct_upload: true%>
+  </div>
+  <div>
+  <%= form.label :visibility, "Select Post Visibility" %>
+  <%= form.select(:visibility, Post.visibilities.keys.map {|visibility| [visibility.titleize,visibility]}) %>
   </div>
 
   <div>
-    <%= form.button "Create Post", type: "submit", :class => "btn btn-primary" %>
+    <%= form.button "Create/Edit Post", type: "submit", :class => "btn btn-primary" %>
   </div>
 <% end %>

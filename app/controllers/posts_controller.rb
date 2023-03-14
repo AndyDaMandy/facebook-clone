@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-      @posts = Post.order("created_at DESC").page(params[:page]) 
+      @posts = Post.where(visibility: [nil, "post_visible", "friends_only"]).order("created_at DESC").page(params[:page]) 
     #@posts = Post.filter_by_user_id(params[:user_id])
   end
   def self_posts
@@ -43,6 +43,7 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1 or /posts/1.json
   def update
+=begin
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to post_url(@post), notice: "Post was successfully updated." }
@@ -52,6 +53,21 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+=end
+respond_to do |format|
+  if @post.update(post_params.reject { |k| k["images"] })
+    if post_params[:images].present?
+      post_params[:images].each do |image|
+        @post.images.attach(image)
+      end
+    end
+    format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+    format.json { render :show, status: :ok, location: @post }
+  else
+    format.html { render :edit }
+    format.json { render json: @post.errors, status: :unprocessable_entity }
+  end
+end
   end
 
   # DELETE /posts/1 or /posts/1.json

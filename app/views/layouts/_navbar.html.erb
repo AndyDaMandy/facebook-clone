@@ -26,6 +26,9 @@
     </div>
   <% end %>
   <li class="navbar-text">
+  <% if current_user.role == 'admin' %>
+    <%= current_user.role %>
+  <% end %>
     Logged in as <strong><%= current_user.email %></strong>
   </li>
     <li class="nav-item">

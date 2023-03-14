@@ -4,16 +4,17 @@
 
 
 <% if @post.images.attached? %>
+<p>Images in this post. To add new ones, please select upload above. You cannot add more than the limit of 3 image per post.</p>
+<p>Important: Once you remove an image, click "create/edit this post" above</p>
   <% @post.images.each do |image| %>
     <div class="box_image">
       <div class="box_content">
         <%= image_tag image.representation(resize_to_limit: [400, 400]), class: "img-flex" %>
-         <%= link_to 'Remove Image', delete_images_post_url(image.id),
+         <%= link_to 'Remove This Image', delete_images_post_url(image.id),
                 data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
       </div>
     </div>
   <% end %>
-<%= submit_tag "Delete selected" %>
 <% end %>
 
 <br>
