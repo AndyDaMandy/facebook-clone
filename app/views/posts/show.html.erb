@@ -9,12 +9,15 @@
       <%= render 'likes/likes'%>
       <div>
         <h5>Comments</h5>
-        <%= render @post.comments %>
+        <% @post.comments.each do |comment| %>
+          <%= render comment %>
+        <% end %>
+        <%# render @post.comments %>
         <%= render 'comments/form' %>
       </div>
     <div class="btn-group">
       <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-light" %>
-      <%= button_to "Delete this post", @post, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
+      <%= button_to "Delete this post", @post, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
     </div>
     </div>
   </div>

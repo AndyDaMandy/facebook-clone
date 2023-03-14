@@ -7,12 +7,20 @@ class CommentsController < ApplicationController
         if @comment.save
             redirect_to post_path(@post)
         else
-            flash.now[:danger] = "error"
+            flash[:error] = "Your comment can only be between 1 and 120 characters"
         end
-      end
+    end
+    def destroy
+      @post = Post.find(params[:post_id])
+      #@comment = @post.comments.find(comment_params)
+      #@post= Post.find(params[:post_id])
+      @comment = Comment.find(params[:id])
+      @comment.destroy
+      redirect_back fallback_location: root_path
+    end
     
       private
         def comment_params
-          params.require(:comment).permit(:comment)
+          params.require(:comment).permit(:post_id, :user_id, :comment)
         end
 end
