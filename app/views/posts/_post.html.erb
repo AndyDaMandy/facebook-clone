@@ -7,7 +7,7 @@
   </div>
   <% if post.images.attached? %>
   <% post.images.each do |image| %>
-  <%= image_tag image.representation(resize_to_limit: [400, 400]), class: "img-flex" %>
+  <%= image_tag image.representation(loader: { n: -1 }, resize_to_limit: [400, 400]).processed, class: "img-flex" %>
   <% end %>
   
   <% end %>
@@ -20,6 +20,18 @@
     <% if post.updated_at != post.created_at %>
       <p>Lasted edited: <%= post.updated_at.strftime("%A %B, %d %Y %I:%M") %></p>
     <% end %>
+  </em>
+  <em>
+  <p>
+  Post Visibility: 
+    <% if post.visibility == nil || post.visibility =='post_visible'%>
+    Public
+    <% elsif post.visibility == 'friends_only'%>
+    Friends Only
+    <% else %>
+    Private
+    <% end %>
+  </p>
   </em>
   </div>
 </div>

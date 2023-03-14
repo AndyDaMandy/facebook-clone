@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-      @posts = Post.where(visibility: [nil, "post_visible", "friends_only"]).order("created_at DESC").page(params[:page]) 
+      @posts = Post.where(visibility: [nil, "post_visible", "friends_only"]).or(Post.where(:user_id => current_user.friendships, visibility: [nil, "post_visible", "friends_only"])).order("created_at DESC").page(params[:page]) 
     #@posts = Post.filter_by_user_id(params[:user_id])
   end
   def self_posts
@@ -95,6 +95,6 @@ end
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:user_id, :content, images: [])
+      params.require(:post).permit(:user_id, :content, :visibility, images: [])
     end
 end

@@ -15,9 +15,11 @@
         <%# render @post.comments %>
         <%= render 'comments/form' %>
       </div>
+      <% if @post.user == current_user.id %>
     <div class="btn-group">
       <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-light" %>
       <%= button_to "Delete this post", @post, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
     </div>
+      <% end %>
     </div>
   </div>

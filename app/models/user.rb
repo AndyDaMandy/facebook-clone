@@ -7,10 +7,11 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_one :profile
   #accepts_nested_attributes_for :profile
-  has_many :friendships, :class_name => "Friendship"
-  has_many :friends, :through => :friendships
+  has_many :friendships, :class_name => "Friendship", dependent: :destroy
+  has_many :friends, :through => :friendships, dependent: :destroy
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
+  has_many :friends_posts, through: :friends, source: :posts
 
   has_one_attached :avatar
 

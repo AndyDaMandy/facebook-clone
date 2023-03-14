@@ -5,12 +5,14 @@ class Post < ApplicationRecord
   has_many_attached :images
 
   enum visibility: [:post_visible, :friends_only, :not_visible]
+  validates :visibility, presence: true
+=begin
   after_initialize :set_default_visibility, :if => :new_record?
   def set_default_visibility
     self.visibility ||= :post_visible
   end
-
-  validates :images, content_type: ['image/png', 'image/jpeg'], limit: { max: 3 }
+=end
+  validates :images, content_type: ['image/png', 'image/jpeg', 'image/gif'], limit: { max: 3 }
 
   scope :post_visible, -> { where(visibility: "post_visible")}
   scope :legacy_visible, -> { where(visibility: '')}
