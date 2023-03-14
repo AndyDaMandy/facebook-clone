@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-      @posts = Post.where(visibility: [nil, "post_visible", "friends_only"]).or(Post.where(:user_id => current_user.friendships, visibility: [nil, "post_visible", "friends_only"])).order("created_at DESC").page(params[:page]) 
+      @posts = Post.where(visibility: [nil, "post_visible"]).or(Post.where(:user_id => current_user.friends, visibility: [nil, "post_visible", "friends_only"])).or(Post.where(:user_id => current_user.id)).order("created_at DESC").page(params[:page]) 
     #@posts = Post.filter_by_user_id(params[:user_id])
   end
   def self_posts
