@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
     resources :likes
+    member do
+      delete :delete_images
+    end
   end
   get '/self_posts', to: 'posts#self_posts'
   resources :users do
