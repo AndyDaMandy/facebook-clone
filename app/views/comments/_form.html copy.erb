@@ -1,0 +1,9 @@
+<%= form_with model: [ @post, @post.comments.update ] do |form| %>
+  <p>
+    <%= form.label :comment %><br>
+    <%= form.text_area :comment %>
+  </p>
+  <p>
+    <%= form.button "Create Comment", type: "submit", :class => "btn btn-primary"%>
+  </p>
+<% end %>
