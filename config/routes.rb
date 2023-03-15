@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
   get '/self_posts', to: 'posts#self_posts'
   get '/friend_posts', to: 'posts#friend_posts'
+  get '/user_posts', to: 'posts#user_posts'
   resources :users do
     resources :profile
     resources :comments

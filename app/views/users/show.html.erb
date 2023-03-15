@@ -18,11 +18,15 @@
     <ul>
         <% for friendship in @user.friendships %>
             <li>
-            <%# if friendship.friend== @user.inverse_friends.%>
             <%=h friendship.friend.first_name %>
             <%=h friendship.friend.last_name %>
             <%= link_to "remove friend", friendship, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
             </li>
+            <% if @user.inverse_friends.find_by(:id => friendship.friend.id) %>
+                <p>Friend Request Accepted</p>
+            <% else %>
+                <p>Friend Request Pending</p>
+            <% end %>
         <% end %>
     </ul>
 <% end %>

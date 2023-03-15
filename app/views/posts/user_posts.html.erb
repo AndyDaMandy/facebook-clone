@@ -1,5 +1,5 @@
-<% debug @posts %>
-<h1>Posts</h1>
+<%= debug @posts %>
+<h1><%=@user.first_name%> <%= @user.last_name %> Posts</h1>
 <%= link_to "New post", new_post_path, class: "btn btn-primary" %>
 
 
@@ -19,5 +19,4 @@
 <%= paginate @posts,  theme: 'bootstrap-5',
                    pagination_class: "pagination-sm flex-wrap justify-content-center",
                    nav_class: "d-inline-block"%>
-
 

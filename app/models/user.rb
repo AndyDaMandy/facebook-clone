@@ -11,6 +11,13 @@ class User < ApplicationRecord
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
   has_many :friends_posts, through: :friends, source: :posts
 
+  #extend FriendlyId
+  #friendly_id :generated_slug, use: :slugged
+  #def generated_slug
+    #require 'securerandom' 
+    #@random_slug ||= persisted? ? friendly_id : SecureRandom.hex(15) 
+  #end
+
   has_one_attached :avatar
 
   enum role: [:user, :moderator, :admin]
