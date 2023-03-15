@@ -42,7 +42,8 @@ class UsersController < ApplicationController
         end
       end
       def accept_friend
-      @friend = User.find_by(params[:id])
+      @friend = User.find_by(params[:inverse_friend_id])
+        #@inverse_friends
       #@friend.inverse_friendships.friend
       end
 
@@ -64,6 +65,6 @@ class UsersController < ApplicationController
 
     private
       def profile_params
-        params.require(:user).permit(:user_id, :first_name, :last_name, :age, :about, :search)
+        params.require(:user).permit(:user_id, :first_name, :last_name, :age, :about, :search, :status, :inverse_friend_id)
     end
 end

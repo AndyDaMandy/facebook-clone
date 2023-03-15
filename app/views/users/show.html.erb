@@ -10,49 +10,22 @@
 <% if @user != current_user %>
     <% if @user != current_user.friends.find_by(id: @user.id) %>
 <%= button_to "Add Friend", friendships_path(:friend_id => @user.id), :method => :post %>
+<p>Note the other person must friend you back to be your friend</p>
     <% end %>
 <% else %>
-    <h2>Friends</h2>
+
+<h2>Friends</h2>
     <ul>
-    <% for friendship in @user.friendships.find_by(friendship_status: 1) %>
-        <li>
-        <%=h friendship.friend.first_name %>
-        <%=h friendship.friend.last_name %>
-        <%=h friendship.friendship_status %>
-        <%= link_to "remove friend", friendship, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-        </li>
-    <% end %>
-    </ul>
-
-    <p><%= link_to "Find Friends", users_path %></p>
-
-    <h2>Friend Requests</h2>
-    <% if @user.friendships != nil %>
-     <% for friendship in @user.friendships.find_by(friendship_status: 0) %>
-        <li>
-        <%=h friendship.friend.first_name %>
-        <%=h friendship.friend.last_name %>
-        <%=h friendship.friendship_status %>
-        <%= link_to "remove friend", friendship, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-        </li>
-    <% end %>
-    <% else %>
-    <% end %>
-    </ul>
-
-
-    <h2>Friend Requests</h2>
-    <ul>
-    <% if @user.inverse_friendship != nil %>
-    <% for user in @user.inverse_friends %>
-        <li><%= h user.first_name %><%= h user.last_name %></li>
-        <%= link_to "Accept Friend Request", accept_friend(:friend_id => user.id, :status => 0), method: :post %>
-        <%= link_to "Ignore Friend Request", accept_friend(:friend_id => user.id,:status => 2), method: :post%>
-    <% end %>
-    <p>No Friend Requests</p>
-    <% else %>
-    <% end %>
+        <% for friendship in @user.friendships %>
+            <li>
+            <%# if friendship.friend== @user.inverse_friends.%>
+            <%=h friendship.friend.first_name %>
+            <%=h friendship.friend.last_name %>
+            <%= link_to "remove friend", friendship, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+            </li>
+        <% end %>
     </ul>
 <% end %>
+    <p><%= link_to "Find Friends", users_path %></p>
 </div>
 

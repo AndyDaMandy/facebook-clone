@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     #loads posts that are visible, posts that belong to friends that are visible, and the current users's posts. It also orders them by created at and paginates them
-      @posts = Post.where(visibility: [nil, "post_visible"]).or(Post.where(:user_id => current_user.friends, visibility: [nil, "post_visible", "friends_only"])).or(Post.where(:user_id => current_user.id)).order("created_at DESC").page(params[:page]) 
+      @posts = Post.where(visibility: [nil, "post_visible"]).or(Post.where(:user_id => current_user.friends,:user_id => current_user.inverse_friends, visibility: [nil, "post_visible", "friends_only"])).or(Post.where(:user_id => current_user.id)).order("created_at DESC").page(params[:page]) 
     #@posts = Post.filter_by_user_id(params[:user_id])
   end
   def self_posts
@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
   def friends_posts
     @user = current_user
-    @posts = Posts.where(:user_id => current_user.friends, visibility: [nil, "post_visible", "friends_only"]).order("created_at DESC").page(params[:page]) 
+    @posts = Posts.where(:user_id => current_user.friends, visibility: [nil, "post_visible", "friends_only"], :user_id => current_user.inverse_friends).order("created_at DESC").page(params[:page]) 
   end
 
   # GET /posts/1 or /posts/1.json
