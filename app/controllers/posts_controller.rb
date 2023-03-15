@@ -35,11 +35,11 @@ class PostsController < ApplicationController
     if @user == current_user.friends.find_by(id: @user.id) && @user == current_user.inverse_friends.find_by(id: @user.id)
       @posts = Post.where(visibility: [nil, "post_visible", "friends_only"])
         .and(Post.where(:user_id => @user.id))
-        .page(params[:page])
+        .order("created_at DESC").page(params[:page])
     else
       @posts = Post.where(visibility: [nil, "post_visible"])
       .and(Post.where(:user_id => @user.id))
-      .page(params[:page])
+      .order("created_at DESC").page(params[:page])
     end
    
         #.or(Post.where(user_id: current_user.friends.ids, visibility: "friends_only")
