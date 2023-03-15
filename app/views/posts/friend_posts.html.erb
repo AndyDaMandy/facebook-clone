@@ -1,4 +1,4 @@
-<h1>My Posts</h1>
+<h1>Friend Posts</h1>
 <%= link_to "New post", new_post_path, class: "btn btn-primary" %>
 
 <% if @posts != nil %>
@@ -15,11 +15,9 @@
     </div>
   <% end %>
 </div>
-<div>
 <%= paginate @posts,  theme: 'bootstrap-5',
                    pagination_class: "pagination-sm flex-wrap justify-content-center",
                    nav_class: "d-inline-block"%>
-                   </div>
-<% else %>
-    <p>You haven't posted anything yet! You should try it!</p>
+    <% else %>
+    <p>No friends or friends posts yet! Make some!</p>
 <% end %>

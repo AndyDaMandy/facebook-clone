@@ -1,7 +1,18 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.order(:last_name).page params[:page]
+    @users = User.all
+    #.page params[:page]
+    if params[:search_by_first_name] && params[:search_by_first_name] != ""
+      @users = @users.where("first_name like ?", 
+      "%# {params[:search_by_first_name]}%")
+    end
+    if params[:search_by_last_name] && params[:search_by_last_name] != ""
+      @users = @users.where("last_name like ?", 
+      "%# {params[:search_by_last_name]}%")
+    end
+    #@users = User.search(params[:search]) unless params[:search].blank?
+    #.order(:last_name).page params[:page]
     #avatar = @user.avatar.download
     #@user = User.filter_by_first_name(params[:first_name])
     #@user = User.filter_by_last_name(params[:last_name])
@@ -30,8 +41,15 @@ class UsersController < ApplicationController
           end
         end
       end
+      def accept_friend
+      @friend = User.find_by(params[:id])
+      #@friend.inverse_friendships.friend
+      end
 
-      
+      def search
+        @key = "%#{params[:search]}%"
+        @users = User.where("lower(first_name) LIKE ? or lower(last_name) LIKE ?", @key.downcase, @key.downcase)
+      end      
 
       def apply_omniauth(auth)
         update_attributes(
@@ -46,6 +64,6 @@ class UsersController < ApplicationController
 
     private
       def profile_params
-        params.require(:user).permit(:user_id, :first_name, :last_name, :age, :about)
+        params.require(:user).permit(:user_id, :first_name, :last_name, :age, :about, :search)
     end
 end

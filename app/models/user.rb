@@ -5,8 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_one :profile
-  #accepts_nested_attributes_for :profile
   has_many :friendships, :class_name => "Friendship", dependent: :destroy
   has_many :friends, :through => :friendships, dependent: :destroy
   has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
@@ -44,8 +42,7 @@ class User < ApplicationRecord
     end
   end
 
-  #scope :filter_by_first_name, -> (first_name) { where("first_name LIKE?", first_name)}
-  #scope :filter_by_last_name, -> (last_name) {where("last_name LIKE?", last_name)}
-  #scope :filter_by_username, -> (username) {where("username LIKE?", username)}
+  scope :by_last_name, -> (last_name) {where("last_name LIKE ?", last_name )}
+  scope :by_first_name, -> (first_name) {where("last_name LIKE ?", first_name )}
 
 end

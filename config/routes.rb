@@ -18,10 +18,14 @@ Rails.application.routes.draw do
     end
   end
   get '/self_posts', to: 'posts#self_posts'
+  get '/friend_posts', to: 'posts#friend_posts'
   resources :users do
     resources :profile
     resources :comments
     resources :likes
+    collection do
+      get 'search'
+    end
   end
   resources :friendships
   get 'friends/create/:id', to: 'friendships#create', as: 'add_friend'

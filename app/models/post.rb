@@ -14,9 +14,6 @@ class Post < ApplicationRecord
 =end
   validates :images, content_type: ['image/png', 'image/jpeg', 'image/gif'], limit: { max: 3 }
 
-  scope :post_visible, -> { where(visibility: "post_visible")}
-  scope :legacy_visible, -> { where(visibility: '')}
-  scope :post_friends_only, -> { where(visibility: "friends_only")}
-
-  #scope :filter_by_user_id, -> (user_id) { where(user_id: user_id)}
+  scope :post_visibility, -> (visibility) { where("visibility Like ?", post_visible)}
+  scope :filter_by_user, -> (user_id) { where("user_id LIKE ?", user_id)}
 end

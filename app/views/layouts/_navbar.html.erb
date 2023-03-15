@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light text-dark">
 <div class="container-fluid">
   <h1 class="navbar-brand" >The Andy Hon</h1>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,6 +12,9 @@
       <li class="nav-item">
         <%if user_signed_in?%>
         <%= link_to "My Posts", self_posts_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Friend Posts", friend_posts_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= link_to "Find Friends", users_path, class: "nav-link" %>

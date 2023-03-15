@@ -1,20 +1,20 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Users</h1>
-
+<%= form_tag search_users_path, :method => 'get' do %>
+    <%# text_field_tag :search, params[:search] %>
+    <%= label_tag :search %>
+    <%= text_field_tag :search, params[:search] %>  
+    <%= submit_tag "Search" %>
+<% end %>
 <div id="users">
-  <% @users.each do |user| %>
-    <% if user.first_name != nil && user.last_name != nil %>
-    <%= user.first_name %>
-    <%= user.last_name %>
+  <%# @users.each do |user| %>
+    <%# if user.first_name != nil && user.last_name != nil %>
+    <%# user.first_name %>
+    <%# user.last_name %>
     <p>
-    <%= link_to "Go to User Page", user %>
+    <%# link_to "Go to User Page", user %>
     </p>
-    <% else %>
-      <p>This user has not filled in their profile, you cannot add them until they've filled in their profile. </p>
-    <% end %>
-  <% end %>
+  <%# end %>
 </div>
-<%= paginate @users,  theme: 'bootstrap-5',
+<%# paginate @users,  theme: 'bootstrap-5',
                    pagination_class: "pagination-sm flex-wrap justify-content-center",
                    nav_class: "d-inline-block" %>

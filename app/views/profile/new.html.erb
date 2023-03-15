@@ -1,9 +1,0 @@
-<h1>New Profile</h1>
-<% if current_user.profile == nil %>
-    <%= render "form", post: @profile %>
-<% else %>
-    <p>You cannot create a duplicate profile. Please edit instead.</p>
-    <%= link_to "Edit Profile", edit_user_profile_path(:id => @user.id) %>
-<% end %>
-
-<br>
