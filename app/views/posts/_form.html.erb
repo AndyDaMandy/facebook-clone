@@ -13,7 +13,7 @@
 
   <div>
     <%= form.label :content, "Enter your Post Text Here:", style: "display: block" %>
-    <%= form.text_field :content, :class => "input-large" %>
+    <%= form.text_area :content, :class => "input-large" %>
     <% form.hidden_field :user_id, value: current_user.id %>
   </div>
   <div>
