@@ -1,5 +1,7 @@
 <h1>Friend Posts</h1>
+<% if user_signed_in? %>
 <%= link_to "New post", new_post_path, class: "btn btn-primary" %>
+<% end %>
 <% if @posts != nil %>
 <div id="posts">
   <% @posts.each do |post| %>

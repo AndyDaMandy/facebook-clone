@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
 
-    before_action :authenticate_user!
+    #before_action :authenticate_user!
 
-    skip_before_action :authenticate_user!, :only => [:privacy]
+    #skip_before_action :authenticate_user!, :only => [:privacy]
 
     before_action :configure_permitted_parameters, if: :devise_controller?
 

@@ -13,11 +13,11 @@
 
   <div>
     <%= form.label :content, "Enter your Post Text Here:", style: "display: block" %>
-    <%= form.text_field :content %>
+    <%= form.text_field :content, :class => "input-large" %>
     <% form.hidden_field :user_id, value: current_user.id %>
   </div>
   <div>
-    <%= form.label :images, "Upload Images or gifs (.png, .jpg, or .gif) - Max 3:", style: "display: block"%>
+    <%= form.label :images, "Upload Images or gifs (.png, .jpg, or .gif) - Max 1:", style: "display: block"%>
     <%= form.file_field :images,multiple: true, direct_upload: true%>
   </div>
   <div>

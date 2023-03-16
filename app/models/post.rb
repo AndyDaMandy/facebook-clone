@@ -12,7 +12,7 @@ class Post < ApplicationRecord
     self.visibility ||= :post_visible
   end
 =end
-  validates :images, content_type: ['image/png', 'image/jpeg', 'image/gif'], limit: { max: 3 }
+  validates :images, content_type: ['image/png', 'image/jpeg', 'image/gif'], limit: { max: 1 }
 
   scope :post_visibility, -> (visibility) { where("visibility Like ?", post_visible)}
   scope :filter_by_user, -> (user_id) { where("user_id LIKE ?", user_id)}

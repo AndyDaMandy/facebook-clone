@@ -3,6 +3,7 @@
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
 <% end %>
+<% if params[:search].present? %>
 <div id="users">
   <% @users.each do |user| %>
     <% if user.first_name != nil && user.last_name != nil %>
@@ -16,6 +17,7 @@
     <% end %>
   <% end %>
 </div>
+<% end %>
 <%# paginate @users,  theme: 'bootstrap-5',
                    pagination_class: "pagination-sm flex-wrap justify-content-center",
                    nav_class: "d-inline-block" %>

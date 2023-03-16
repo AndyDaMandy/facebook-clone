@@ -9,9 +9,11 @@
  | <%= comment.updated_at.strftime("%A %B, %d %Y %I:%M") %>
   <% end %>
   </em>
+  <% if user_signed_in? %>
   <% if current_user && current_user == comment.user %>
   <%= link_to 'Delete', [comment.post, comment],
                  data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
   <% end %>
   </p>
 </p>
+<% end %>

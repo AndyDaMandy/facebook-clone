@@ -1,6 +1,7 @@
 <div>
   <p>&#11088 <%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 </div>
+<% if user_signed_in? %>
 <div>
   <% pre_like = @post.likes.find { |like| like.user_id == current_user.id} %>
   <% if pre_like %>
@@ -9,3 +10,4 @@
     <%= button_to 'Like', post_likes_path(@post), method: :post, class: "btn btn-primary" %>
   <% end %>
 </div>
+<% end %>

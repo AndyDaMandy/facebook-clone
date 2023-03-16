@@ -4,12 +4,15 @@ Rails.application.routes.draw do
   #devise_for :users
   #devise_for :users, controllers: { registrations: "registrations" }
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks'}
+  root 'posts#index'
+=begin
   authenticated :user do
     root 'posts#index', as: 'authenticated_root'
   end
   devise_scope :user do
     root 'devise/sessions#new'
   end
+=end
   resources :posts do
     resources :comments
     resources :likes

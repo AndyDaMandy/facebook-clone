@@ -13,9 +13,13 @@
           <%= render comment %>
         <% end %>
         <%# render @post.comments %>
+        <% if user_signed_in?%>
         <%= render 'comments/form' %>
+        <% else %>
+        <p>You must be signed in to comment</p>
+        <% end %>
       </div>
-      <% if @post.user_id == current_user.id %>
+      <% if @post.user_id == current_user.id || current_user.role == 'admin' %>
     <div class="btn-group">
       <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-light" %>
       <%= button_to "Delete this post", @post, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>

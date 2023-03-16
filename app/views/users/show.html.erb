@@ -7,6 +7,7 @@
     <li>About: <%= @user.about %></li>
     
 </ul>
+<% if user_signed_in? %>
 <% if @user != current_user %>
     <% if @user != current_user.friends.find_by(id: @user.id) %>
 <%= button_to "Add Friend", friendships_path(:friend_id => @user.id), :method => :post %>
@@ -32,4 +33,4 @@
 <% end %>
     <p><%= link_to "Find Friends", users_path %></p>
 </div>
-
+<% end %>
