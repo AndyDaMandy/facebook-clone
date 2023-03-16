@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       delete :delete_images
     end
   end
+  get "/privacy", to: "pages#privacy"
   get '/self_posts', to: 'posts#self_posts'
   get '/friend_posts', to: 'posts#friend_posts'
   get '/user_posts', to: 'posts#user_posts'
