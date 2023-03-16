@@ -19,11 +19,13 @@
         <p>You must be signed in to comment</p>
         <% end %>
       </div>
+      <% if user_signed_in? %>
       <% if @post.user_id == current_user.id || current_user.role == 'admin' %>
     <div class="btn-group">
       <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-light" %>
       <%= button_to "Delete this post", @post, method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger" %>
     </div>
+      <% end %>
       <% end %>
     </div>
   </div>

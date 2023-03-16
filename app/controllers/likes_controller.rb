@@ -1,9 +1,9 @@
 class LikesController < ApplicationController
 
     #https://medium.com/full-taxx/how-to-add-likes-to-posts-in-rails-e81430101bc2
-    before_action :authenticate_user!, only: => [:create, :destroy]
+    before_action :authenticate_user!, only: [:create]
     before_action :find_post  
-    before_action :find_like, only: => [:destroy]
+    before_action :find_like, only: [:destroy]
     def create
         if already_liked?
           flash[:notice] = "You can't like more than once"
