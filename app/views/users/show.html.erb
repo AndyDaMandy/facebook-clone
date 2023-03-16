@@ -1,12 +1,17 @@
 <div>
-<h1>User page</h1>
-<ul>
-    <li>First Name: <%= @user.first_name %></li>
-    <li>Last Name: <%= @user.last_name %></li>
-    <li>Age: <%= @user.age.to_s %></li>
-    <li>About: <%= @user.about %></li>
-    
+<h1><%= @user.first_name %> <%= @user.last_name %>'s Page</h1>
+<ul class="list-group">
+    <li class="list-group-item">First Name: <%= @user.first_name %></li>
+    <li class="list-group-item">Last Name: <%= @user.last_name %></li>
+    <li class="list-group-item">Age: <%= @user.age.to_s %></li>
+    <li class="list-group-item">About: <%= @user.about %></li>
 </ul>
+ <%=link_to user_posts_path(:user_id => @user.id) do %>
+    <strong>
+    <%= @user.first_name %>
+    <%= @user.last_name %> 's posts
+    </strong>
+    <% end %>
 <% if user_signed_in? %>
 <% if @user != current_user %>
     <% if @user != current_user.friends.find_by(id: @user.id) %>
@@ -31,6 +36,6 @@
         <% end %>
     </ul>
 <% end %>
-    <p><%= link_to "Find Friends", users_path %></p>
+    <p><%# link_to "Find Friends", users_path %></p>
 </div>
 <% end %>

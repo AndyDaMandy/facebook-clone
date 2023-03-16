@@ -1,4 +1,5 @@
 <h1><%=@user.first_name%> <%= @user.last_name %>'s Posts</h1>
+<p><%= link_to "#{@user.first_name} #{@user.last_name}'s page", user_path(@user) %></p>
 <% if user_signed_in? %>
 <%= link_to "New post", new_post_path, class: "btn btn-primary" %>
 <% end %>

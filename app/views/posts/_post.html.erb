@@ -17,23 +17,25 @@
   <p class="fs-1">
     <%= post.content %>
   </p>
-  <em>
-    <p>Posted on: <%= post.created_at.strftime("%A %B, %d %Y %I:%M") %></p>
-    <% if post.updated_at != post.created_at %>
-      <p>Lasted edited: <%= post.updated_at.strftime("%A %B, %d %Y %I:%M") %></p>
-    <% end %>
-  </em>
-  <em>
-  <p>
-  Post Visibility: 
-    <% if post.visibility == nil || post.visibility =='post_visible'%>
-    Public
-    <% elsif post.visibility == 'friends_only'%>
-    Friends Only
-    <% else %>
-    Private
-    <% end %>
-  </p>
-  </em>
+  <div class="fs-6">
+    <em>
+      <p>Posted on: <%= post.created_at.strftime("%A %B, %d %Y %I:%M") %></p>
+      <% if post.updated_at != post.created_at %>
+        <p>Lasted edited: <%= post.updated_at.strftime("%A %B, %d %Y %I:%M") %></p>
+      <% end %>
+    </em>
+    <em>
+    <p>
+    Post Visibility: 
+      <% if post.visibility == nil || post.visibility =='post_visible'%>
+      Public
+      <% elsif post.visibility == 'friends_only'%>
+      Friends Only
+      <% else %>
+      Private
+      <% end %>
+    </p>
+    </em>
+    </div>
   </div>
 </div>

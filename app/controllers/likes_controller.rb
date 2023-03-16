@@ -1,5 +1,4 @@
 class LikesController < ApplicationController
-
     #https://medium.com/full-taxx/how-to-add-likes-to-posts-in-rails-e81430101bc2
     before_action :authenticate_user!, only: [:create]
     before_action :find_post  
@@ -11,6 +10,7 @@ class LikesController < ApplicationController
           @post.likes.create(user_id: current_user.id)
         end
         redirect_to post_path(@post)
+        #redirect_back fallback_location: root_path(anchor: dom_id(@post))
       end
       def destroy
         if !(already_liked?)
@@ -19,6 +19,7 @@ class LikesController < ApplicationController
           @like.destroy
         end
         redirect_to post_path(@post)
+        #redirect_back fallback_location: root_path, anchor: @post
       end
       def find_like
         @like = @post.likes.find(params[:id])

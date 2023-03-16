@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  #include ActionView::RecordIdentifier # adds `dom_id`
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: [:new, :edit, :self_posts, :friend_posts, :create, :update, :destroy]
 

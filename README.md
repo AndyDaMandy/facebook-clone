@@ -1,4 +1,4 @@
-This is a facebook clone that uses devise, omniauth (with facebook), postgres, and Rails
+This is a social media app that uses devise, omniauth (with facebook), postgres, amazon s3, sendgrid, and Rails
 
 Deployed here:
-https://empty-glitter-6311.fly.dev/
+https://the-andy-book-app.fly.dev/
