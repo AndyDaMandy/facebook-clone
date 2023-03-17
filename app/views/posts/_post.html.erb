@@ -9,7 +9,7 @@
   </div>
   <% if post.images.attached? %>
   <% post.images.each do |image| %>
-  <%= image_tag image.representation(loader: { n: -1 }, resize_to_fit: [nil, 400]).processed, class: "img-fluid" %>
+  <%= image_tag image.representation(loader: { n: -1 }, resize_to_fit: [400, nil]).processed, class: "img-fluid", onerror: "this.style.display='none'" %>
   <% end %>
   
   <% end %>
