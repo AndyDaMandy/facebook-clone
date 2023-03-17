@@ -19,7 +19,9 @@ class UsersController < ApplicationController
   end
 
     def show
-        @user = User.friendly.find(params[:id])
+        #@user = User.friendly.find(params[:id])
+        #finds user by slug thus preventing you from finding users easily
+        @user = User.find_by!(slug: params[:id])
         avatar = @user.avatar.download
     end
 

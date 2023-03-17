@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+
   resources :friendships
   get 'friends/create/:id', to: 'friendships#create', as: 'add_friend'
   resources :authentications, only: [:destroy]
