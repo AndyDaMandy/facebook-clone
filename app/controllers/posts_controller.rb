@@ -37,7 +37,7 @@ class PostsController < ApplicationController
   end
 
   def user_posts
-    @user = User.find(params[:user_id])
+    @user = User.friendly.find_by_friendly_id(params[:user_id])
     if user_signed_in?
       if @user == current_user.friends.find_by(id: @user.id) && @user == current_user.inverse_friends.find_by(id: @user.id)
         @posts = Post.where(visibility: [nil, "post_visible", "friends_only"])

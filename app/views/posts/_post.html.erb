@@ -1,6 +1,6 @@
 <div id="<%= dom_id post %>">
   <div class="card-header">
-    <%=link_to user_posts_path(:user_id => post.user_id) do %>
+    <%=link_to user_posts_path(:user_id => User.friendly.find(post.user_id)) do %>
     <strong>
     <%= post.user.first_name %>
     <%= post.user.last_name %>

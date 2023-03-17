@@ -6,7 +6,7 @@
     <li class="list-group-item">Age: <%= @user.age.to_s %></li>
     <li class="list-group-item">About: <%= @user.about %></li>
 </ul>
- <%=link_to user_posts_path(:user_id => @user.id) do %>
+ <%=link_to user_posts_path(:user_id => @user.friendly_id) do %>
     <strong>
     <%= @user.first_name %>
     <%= @user.last_name %> 's posts

@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
     def show
-        @user = User.find(params[:id])
+        @user = User.friendly.find(params[:id])
         avatar = @user.avatar.download
     end
 
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
         end
       end
       def accept_friend
-      @friend = User.find_by(params[:inverse_friend_id])
+      @friend = User.friendly.find_by(params[:inverse_friend_id])
         #@inverse_friends
       #@friend.inverse_friendships.friend
       end
