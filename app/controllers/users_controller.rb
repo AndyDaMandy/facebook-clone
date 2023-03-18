@@ -22,7 +22,7 @@ class UsersController < ApplicationController
         #@user = User.friendly.find(params[:id])
         #finds user by slug thus preventing you from finding users easily
         @user = User.find_by!(slug: params[:id])
-        avatar = @user.avatar.download
+        #avatar = @user.avatar.download
     end
 
     def edit
@@ -67,6 +67,6 @@ class UsersController < ApplicationController
 
     private
       def profile_params
-        params.require(:user).permit(:user_id, :first_name, :last_name, :age, :about, :search, :status, :inverse_friend_id)
+        params.require(:user).permit(:user_id, :first_name, :last_name, :age, :about, :avatar, :search, :status, :inverse_friend_id)
     end
 end

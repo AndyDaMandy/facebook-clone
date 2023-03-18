@@ -2,7 +2,9 @@ class Post < ApplicationRecord
   belongs_to :user #dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many_attached :images
+  has_many_attached :images do |attach|
+    attach.variant :small, loader: { n: -1 }, resize_to_fit: [400, nil]
+  end
 
   enum visibility: [:post_visible, :friends_only, :not_visible]
   validates :visibility, presence: true

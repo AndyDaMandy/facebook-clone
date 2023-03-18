@@ -12,15 +12,26 @@
   <% end %>
 
   <div>
+  <div>
     <%= form.label :first_name, style: "display: block" %>
     <%= form.text_field :first_name %>
+  </div>
+  <div>
     <%= form.label :last_name, style: "display: block" %>
     <%= form.text_field :last_name %>
+  </div>
+  <div>
     <%= form.label :age, style: "display: block" %>
     <%= form.number_field :age %>
-    <%= form.label :likes, style: "display: block" %>
+  </div>
+  <div>
     <%= form.label :about, style: "display: block" %>
     <%= form.text_field :about %>
+  </div>
+  <div class="field">
+    <%= form.label :avatar %>
+    <%= form.file_field :avatar %>
+  </div>
     <% form.hidden_field :user_id, value: current_user.id %>
   </div>
 

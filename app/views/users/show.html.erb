@@ -1,4 +1,9 @@
 <div>
+<% if @user.avatar.attached? %>
+<div>
+    <%= image_tag @user.avatar.variant(:thumb) %>
+</div>
+<% end %>
 <h1><%= @user.first_name %> <%= @user.last_name %>'s Page</h1>
 <ul class="list-group">
     <li class="list-group-item">First Name: <%= @user.first_name %></li>
@@ -26,6 +31,7 @@
             <li>
             <%=h friendship.friend.first_name %>
             <%=h friendship.friend.last_name %>
+            <p><%= link_to "Go to User's page", user_path(friendship.friend) %></p>
             <%= link_to "remove friend", friendship, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
             </li>
             <% if @user.inverse_friends.find_by(:id => friendship.friend.id) %>

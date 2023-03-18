@@ -9,7 +9,7 @@
   </div>
   <% if post.images.attached? %>
   <% post.images.each do |image| %>
-  <%= image_tag image.representation(loader: { n: -1 }, resize_to_fit: [400, nil]).processed, class: "img-fluid", onerror: "this.style.display='none'" %>
+  <%= image_tag image.variant(:small), class: "img-fluid", onerror: "this.style.display='none'" %>
   <% end %>
   
   <% end %>
@@ -19,9 +19,9 @@
   </p>
   <div class="fs-6">
     <em>
-      <p>Posted on: <%= post.created_at.strftime("%A %B, %d %Y %I:%M") %></p>
+      <p>Posted on: <%= post.created_at.strftime("%c") %></p>
       <% if post.updated_at != post.created_at %>
-        <p>Lasted edited: <%= post.updated_at.strftime("%A %B, %d %Y %I:%M") %></p>
+        <p>Lasted edited: <%= post.updated_at.strftime("%c") %></p>
       <% end %>
     </em>
     <em>

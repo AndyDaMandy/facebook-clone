@@ -12,6 +12,11 @@ class User < ApplicationRecord
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
   has_many :friends_posts, through: :friends, source: :posts
 
+  has_one_attached :avatar do |attach|
+    attach.variant :thumb, resize_to_limit: [100, 100], format: :jpg
+    attach.variant :mini, resize_to_limit: [40, 40], format: :jpg
+  end
+
   extend FriendlyId
   friendly_id :generated_slug, use: :slugged
   def generated_slug
@@ -23,7 +28,7 @@ class User < ApplicationRecord
   end
   
 
-  has_one_attached :avatar
+  
 
   enum role: [:user, :moderator, :admin]
   after_initialize :set_default_role, :if => :new_record?
