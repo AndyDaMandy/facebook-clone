@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    after_commit :create_slug, on: :create
+    #after_commit :create_slug, on: :create
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar do |attach|
     attach.variant :thumb, resize_to_limit: [100, 100], format: :jpg
-    attach.variant :mini, resize_to_limit: [40, 40], format: :jpg
+    attach.variant :mini, resize_to_fit: [40, 40], format: :jpg
   end
 
   extend FriendlyId

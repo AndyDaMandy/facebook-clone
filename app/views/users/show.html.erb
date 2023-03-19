@@ -1,7 +1,7 @@
 <div>
 <% if @user.avatar.attached? %>
 <div>
-    <%= image_tag @user.avatar.variant(:thumb) %>
+    <%= image_tag @user.avatar.variant(:thumb), class: "img-fluid" %>
 </div>
 <% end %>
 <h1><%= @user.first_name %> <%= @user.last_name %>'s Page</h1>

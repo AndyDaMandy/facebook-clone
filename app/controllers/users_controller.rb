@@ -67,6 +67,6 @@ class UsersController < ApplicationController
 
     private
       def profile_params
-        params.require(:user).permit(:user_id, :first_name, :last_name, :age, :about, :avatar, :search, :status, :inverse_friend_id)
+        params.require(:user).permit(:user_id, :first_name, :last_name, :age, :about, :avatar, :slug, :search, :status, :inverse_friend_id)
     end
 end
