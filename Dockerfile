@@ -25,6 +25,8 @@ FROM base as build
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential curl libpq-dev libvips node-gyp pkg-config python-is-python3 unzip
 
+#Install libvibs
+ARG DEPLOY_PACKAGES="postgresql-client file vim curl gzip libsqlite3-0 libvips"
 # Install JavaScript dependencies
 ARG NODE_VERSION=19.6.1
 ARG YARN_VERSION=1.22.19
