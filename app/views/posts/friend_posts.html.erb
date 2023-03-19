@@ -9,6 +9,7 @@
       <div class="card-body">
       <%= render post %>
       <p>&#11088 <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+      <p><%= post.comments.count%> <%= (post.comments.count) == 1 ? 'Comment' : 'Comments'%></p>
       <p>
       <%= link_to "Show this post and comments", post, class: "btn btn-light" %>
       </p>

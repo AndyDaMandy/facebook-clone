@@ -3,7 +3,8 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many_attached :images do |attach|
-    attach.variant :small, loader: { n: -1 }, resize_to_fit: [400, nil]
+    attach.variant :small, loader: { n: -1 }, resize_to_limit: [400, nil]
+    #attach.variant :small, loader: { page: nil }, coalesce: true, resize_to_fit: [400, nil]
   end
 
   enum visibility: [:post_visible, :friends_only, :not_visible]
