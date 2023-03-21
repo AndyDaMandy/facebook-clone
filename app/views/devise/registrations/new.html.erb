@@ -3,52 +3,51 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: false }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
+  <div class="mb-3">
+    <%= f.label :email, class: "form-label" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <div class="mb-3">
+    <%= f.label :password , class: "form-label"%>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
+  <div class="mb-3">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
+  <div class="mb-3">
     <%= f.label :first_name %><br />
     <%= f.text_field :first_name, autofocus: true, autocomplete: "first-name" %>
   </div>
 
-  <div class="field">
+  <div class="mb-3">
     <%= f.label :last_name %><br />
     <%= f.text_field :last_name, autofocus: true, autocomplete: "last-name" %>
   </div>
-  <div class="field">
+  <div class="mb-3">
     Optional:
     <%= f.label :about %><br />
     <%= f.text_area :about, autofocus: true, autocomplete: "about" %>
   </div>
-  <div class="field">
+  <div class="mb-3">
     Optional:
     <%= f.label :age %><br />
     <%= f.number_field :age, autofocus: true, autocomplete: "age" %>
   </div>
-  <div class="field">
+  <div class="mb-3">
   Optional:
   <%= f.label :avatar %>
   <%= f.file_field :avatar %>
   </div>
 
-  
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.button "Sign up", type: "submit", :class => "btn btn-success mb-3"  %>
   </div>
 <% end %>
 

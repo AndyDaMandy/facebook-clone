@@ -1,6 +1,8 @@
 <h1>Friend Posts</h1>
 <% if user_signed_in? %>
+<div class="mb-3">
 <%= link_to "New post", new_post_path, class: "btn btn-primary" %>
+</div>
 <% end %>
 <% if @posts != nil %>
 <div id="posts">

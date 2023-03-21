@@ -3,13 +3,13 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {"data-turbo": "false", method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
+  <div class="mb-3">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.button "Send me reset password instructions", type: "submit", :class => "btn btn-success mb-3"  %>
   </div>
 <% end %>
 
