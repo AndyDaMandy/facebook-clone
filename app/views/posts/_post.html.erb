@@ -9,7 +9,8 @@
   </div>
   <% if post.images.attached? %>
   <% post.images.each do |image| %>
-  <%= image_tag image.variant(:small), class: "img-fluid", onerror: "this.style.display='none'" %>
+  <%# image_tag image.variant(:small), class: "rounded img-fluid", onerror: "this.style.display='none'" %>
+  <%= image_tag image, class: "rounded img-fluid", onerror: "this.style.display='none'" %>
   <% end %>
   
   <% end %>
