@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light text-dark">
 <div class="container-fluid">
-<%=image_tag asset_path("book sprite large.svg", width: 25, height: 25, class: "d-inline-block align-top", alt: "logo")%>
-  <h1 class="navbar-brand" >The Andy Hon</h1>
+<%=image_tag asset_path("book sprite large.svg", class: "navbar-brand img-fluid", alt: "logo")%>
+  <span class="navbar-brand" >The Andy Hon</span>
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -25,9 +25,7 @@
     <ul class="navbar-nav mr-auto">
 <% if user_signed_in? %>
   <% if current_user.avatar.attached? %>
-  <div class="navbar-brand">
-      <%= image_tag current_user.avatar.variant(:mini), class: "rounded-circle", alt: "User Avatar"  %>
-    </div>
+      <%= image_tag current_user.avatar.variant(:mini), class: "navbar-brand img-fluid rounded-circle", alt: "User Avatar"  %>
   <% end %>
   <li class="navbar-text">
   <% if current_user.role == 'admin' %>
