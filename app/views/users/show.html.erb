@@ -1,22 +1,24 @@
-<div>
+<div class="my-2">
 <% if @user.avatar.attached? %>
-<div>
+<div class="my-2">
     <%= image_tag @user.avatar.variant(:thumb), class: "img-fluid" %>
 </div>
 <% end %>
-<h1><%= @user.first_name %> <%= @user.last_name %>'s Page</h1>
-<ul class="list-group">
+<h1><%= @user.first_name %> <%= @user.last_name %></h1>
+<ul class="list-group my-3">
     <li class="list-group-item">First Name: <%= @user.first_name %></li>
     <li class="list-group-item">Last Name: <%= @user.last_name %></li>
     <li class="list-group-item">Age: <%= @user.age.to_s %></li>
     <li class="list-group-item">About: <%= @user.about %></li>
-</ul>
- <%=link_to user_posts_path(:user_id => @user.friendly_id) do %>
+    <li class="list-group-item">
+        <%=link_to user_posts_path(:user_id => @user.friendly_id), class: "my-3" do %>
     <strong>
     <%= @user.first_name %>
     <%= @user.last_name %> 's posts
     </strong>
     <% end %>
+    </li>
+</ul>
 <% if user_signed_in? %>
 <% if @user != current_user %>
     <% if @user != current_user.friends.find_by(id: @user.id) %>
@@ -26,19 +28,22 @@
 <% else %>
 
 <h2>Friends</h2>
-    <ul>
+    <ul class="list-group my-3">
         <% for friendship in @user.friendships %>
-            <li>
+            <li class="list-group-item">
+            <%=link_to user_path(friendship.friend) do %>
             <%=h friendship.friend.first_name %>
             <%=h friendship.friend.last_name %>
-            <p><%= link_to "Go to User's page", user_path(friendship.friend) %></p>
-            <%= link_to "remove friend", friendship, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
-            </li>
+            <% end %>
+            <br>
+            <%= link_to "remove friend", friendship, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "link-danger"%>
+            <br>
             <% if @user.inverse_friends.find_by(:id => friendship.friend.id) %>
                 <p>Friend Request Accepted</p>
             <% else %>
                 <p>Friend Request Pending</p>
             <% end %>
+            </li>
         <% end %>
     </ul>
 <% end %>

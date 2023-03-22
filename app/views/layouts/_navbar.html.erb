@@ -33,7 +33,7 @@
   <% if current_user.role == 'admin' %>
     <%= current_user.role %>
   <% end %>
-    Logged in as <strong><%= current_user.first_name %> <%= current_user.last_name%> </strong>
+    <strong><%= current_user.first_name %> <%= current_user.last_name%> </strong>
   </li>
     <li class="nav-item">
       <%= link_to 'View Profile', user_path(current_user), class: 'nav-link' %>
