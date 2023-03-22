@@ -1,2 +1,10 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+@font-face {
+    font-family: 'Figtree';
+    src: url('Figtree-Regular.ttf')
+}
+body {
+    font-family: "Figtree-Regular"
+}
