@@ -8,9 +8,10 @@
 <% if @posts != nil %>
 <div id="posts">
   <% @posts.each do |post| %>
-    <div class="card">
+    <div class="card my-2">
       <div class="card-body">
       <%= render post %>
+      <hr>
       <p>&#11088 <%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
       <p><%= post.comments.count%> <%= (post.comments.count) == 1 ? 'Comment' : 'Comments'%></p>
       <p>

@@ -5,9 +5,9 @@
   <div class="card">
     <div class="card-body">
       <%= render @post %>
-
+      <hr>
       <%= render 'likes/likes'%>
-      <div>
+      <div class="my-3">
         <h5>Comments</h5>
         <% @post.comments.each do |comment| %>
           <%= render comment %>
