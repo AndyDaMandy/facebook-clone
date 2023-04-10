@@ -15,15 +15,15 @@
   
   <% end %>
   <div class="card-text">
-  <p class="fs-2">
+  <p class="fs-4">
     <%= post.content %>
   </p>
   <div class="fs-6">
   <hr>
     <em>
-      <p>Posted on: <%= post.created_at.strftime("%c") %></p>
+      <p>Posted: <%= post.created_at.strftime("%b, %d %Y - %l:%M %P") %>
       <% if post.updated_at != post.created_at %>
-        <p>Lasted edited: <%= post.updated_at.strftime("%c") %></p>
+        | Edited: <%= post.updated_at.strftime("%b, %d %Y - %l:%M %P") %></p>
       <% end %>
     </em>
     <em>
