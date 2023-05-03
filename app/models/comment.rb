@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Comments, belong to users
 class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :user
